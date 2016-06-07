@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="angular/angular.min.js" defer></script>
+    <script type="text/javascript" src="javascripts/client.js" defer></script>
+  </head>
+  <body ng-app='subShopApp' ng-controller='itemsCtrl as ctrl'>
+    <!-- <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p> -->
+
+    <h1>Menu</h1>
+    <ul>
+      <li ng-repeat="item in ctrl.items">{{ item.name }} - {{ item.price | currency }}</li>
+
+    </ul>
+  </body>
+</html>
