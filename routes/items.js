@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Item = require('../items/item');
+var Item = require('../models/item');
 
 function seedItems() {
 var items = [
