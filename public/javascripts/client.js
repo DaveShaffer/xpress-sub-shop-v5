@@ -33,6 +33,7 @@ angular
 
     var ctrl = this;
     ctrl.items = [];
+    ctrl.order = [];
 
     ctrl.getItems = function() {
       $http.get('/api/items')
@@ -41,12 +42,24 @@ angular
       });
     };
     ctrl.getItems();
+
+    ctrl.addItem = function(item) {
+      // $http.get('/api/item/:id')
+      // .then(function(res) {
+      //   ctrl.item = res.data;
+      item.qty -= 1;
+      return $http.put('/api/items/' + item._id);
+      console.log('hello', item);
+      // });
+      // };
+    };
+    // ctrl.addItem();
 });
 
 angular
   .module('subShopApp')
   .controller('itemsShowCtrl', function($http, $stateParams) {
-    console.log('itemShowCtrl is up');
+    // console.log('itemShowCtrl is up');
 
     var ctrl = this;
     ctrl.item = {};

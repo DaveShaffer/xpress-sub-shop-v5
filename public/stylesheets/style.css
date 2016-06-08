@@ -1,11 +1,15 @@
 body {
   color: #EEEEEE;
   background-color: #030303;
-  padding: 50px;
+  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   text-align: center;
 }
 
 a {
   color: #00B7FF;
+}
+
+li {
+  text-align: left;
 }

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+// var controller = require('../public/client');
 
 var Item = require('../models/item');
 
@@ -70,5 +71,8 @@ router.get('/:id', function(req, res, next) {
     return next(err);
   });
 });
+
+// UPDATE rt
+// router.put('/:id', controller.update);
 
 module.exports = router;

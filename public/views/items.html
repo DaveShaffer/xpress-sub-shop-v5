@@ -1,5 +1,7 @@
 <ul>
-  <li ng-repeat="item in ctrl.items">
+  <div ng-repeat="item in ctrl.items">
     <h3><a ui-sref="itemsShow({ itemId: item._id })">{{ item.name }} : {{ item.price | currency }}</a></h3>
-  </li>
+    <button class="btn btn-sm btn-success" id="sold-out-button" ng-click="ctrl.addItem(item)" ng-disabled="item.qty < 1" ng-class="{'btn-danger': item.qty == 0}">Add to Order</button>
+    <!-- <button ng-click="ctrl.addItem(item)">Add to Order</button> -->
+  </div>
 </ul>
