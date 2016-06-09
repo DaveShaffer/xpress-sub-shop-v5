@@ -83,9 +83,10 @@ angular
     };
 
     ctrl.getTotal = function() {
-      return _.reduce(ctrl.order, function(sum, item) {
-        return (sum + ctrl.getCost(item)) * 1.08;
+      var y = _.reduce(ctrl.order, function(sum, item) {
+        return (sum + ctrl.getCost(item));
       }, 0);
+      return y * 1.08
     };
 
     ctrl.clearOrder = function() {
