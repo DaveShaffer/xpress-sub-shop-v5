@@ -5,3 +5,15 @@
     <!-- <button ng-click="ctrl.addItem(item)">Add to Order</button> -->
   </div>
 </ul>
+   <article class="col-sm-3">
+      <h2>Your Order:</h2>
+      <ul>
+        <li class="order animate-order" ng-repeat="item in ctrl.order">
+          <span>{{ item.quantity + ' x ' + item.name + ': ' + (ctrl.getCost(item) | currency) }}</span>
+          <div><button class="btn btn-danger btn-xs" ng-click="ctrl.removeItem(item)">Remove Item</button></div>
+        </li>
+      </ul>
+      <h3>Total inc. tax: {{ ctrl.getTotal() | currency }}</h3>
+      <br>
+      <button class="btn btn-danger" ng-click="ctrl.clearOrder(order)">Clear Order</button>
+    </article>

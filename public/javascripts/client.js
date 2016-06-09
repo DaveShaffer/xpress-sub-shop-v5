@@ -1,4 +1,6 @@
 angular.module('subShopApp', ['ui.router']);
+// var _ = require('underscore');
+
 
 angular
   .module('subShopApp')
@@ -31,9 +33,18 @@ angular
   .controller('itemsCtrl', function($http) {
     // console.log('itemCtrl is up');
 
+    // var _ = require('lodash');
     var ctrl = this;
     ctrl.items = [];
     ctrl.order = [];
+
+    function findItemById(items, id) {
+      console.log('findItemById', items, id);
+      return _.find(items, function(item) {
+        console.log('findItemById2', item._id, id)
+        return item._id === id;
+      });
+    }
 
     ctrl.getItems = function() {
       $http.get('/api/items')
@@ -41,19 +52,34 @@ angular
         ctrl.items = res.data;
       });
     };
-    ctrl.getItems();
+
 
     ctrl.addItem = function(item) {
-      // $http.get('/api/item/:id')
-      // .then(function(res) {
-      //   ctrl.item = res.data;
       item.qty -= 1;
-      return $http.put('/api/items/' + item._id);
-      console.log('hello', item);
-      // });
-      // };
+      var found = findItemById(ctrl.order, item._id);
+      console.log('addItem', item._id, found);
+      if (found) {
+        found.quantity += item.serving;
+      } else {
+        ctrl.order.push(angular.copy(item));
+      }
+      // console.log('hello', item, ctrl.order);
+      return $http.put('/api/items/' + item._id, item);
     };
-    // ctrl.addItem();
+
+    ctrl.removeItem = function(item) {
+      var index = ctrl.order.indexOf(item);
+      // console.log(index, item);
+      ctrl.order[index].quantity -= 1;
+      if (ctrl.order[index].quantity == 0) {
+        ctrl.order.splice(index, 1);
+      };
+      var dish = findItemById(ctrl.order, item._id);
+      dish.qty += 1;
+    };
+
+    ctrl.getItems();
+
 });
 
 angular

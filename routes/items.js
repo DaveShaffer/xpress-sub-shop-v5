@@ -1,8 +1,20 @@
 var express = require('express');
 var router = express.Router();
+var _ = require('lodash');
 // var controller = require('../public/client');
 
 var Item = require('../models/item');
+
+
+function saveUpdates(updates) {
+  return function(entity) {
+    var updated = _.merge(entity, updates);
+    return updated.save()
+      .then(updated => {
+        return updated;
+      });
+  };
+}
 
 function seedItems() {
 var items = [
@@ -60,6 +72,7 @@ router.get('/', function(req, res, next) {
 
 // SHOW rt
 router.get('/:id', function(req, res, next) {
+  console.log(req.body);
   Item.findById(req.params.id)
   .then(function(item) {
     if (!item) {
@@ -74,8 +87,19 @@ router.get('/:id', function(req, res, next) {
 
 // UPDATE rt
 router.put('/:id', function(req, res, next) {
+  console.log(req.body);
   Item.findById(req.params.id)
-  res.json(item);
+  .then(saveUpdates(req.body))
+  .then(function(item) {
+    if (!item) {
+      res.status(404).json( { error: 'Not found' } );
+    }
+    console.log("line 84 " + item);
+    res.json(item);
+  })
+  .catch(function(err) {
+    return next(err);
+  });
 });
 
 module.exports = router;
