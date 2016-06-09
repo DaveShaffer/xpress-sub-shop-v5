@@ -39,9 +39,9 @@ angular
     ctrl.order = [];
 
     function findItemById(items, id) {
-      console.log('findItemById', items, id);
+      // console.log('findItemById', id);
       return _.find(items, function(item) {
-        console.log('findItemById2', item._id, id)
+        // console.log('findItemById2', item._id, id)
         return item._id === id;
       });
     }
@@ -57,7 +57,7 @@ angular
     ctrl.addItem = function(item) {
       item.qty -= 1;
       var found = findItemById(ctrl.order, item._id);
-      console.log('addItem', item._id, found);
+      // console.log('addItem', item._id, found);
       if (found) {
         found.quantity += item.serving;
       } else {
@@ -83,19 +83,21 @@ angular
     };
 
     ctrl.getTotal = function() {
-      var y = _.reduce(ctrl.order, function(sum, item) {
+      var totalPrice = _.reduce(ctrl.order, function(sum, item) {
         return (sum + ctrl.getCost(item));
       }, 0);
-      return y * 1.08
+      return totalPrice * 1.08
     };
 
-    ctrl.clearOrder = function() {
-      var x = ctrl.order;
-      _.each(x, function(item) {
+    ctrl.clearOrder = function(order) {
+       // var x = ctrl.order;
+      _.each(ctrl.order, function(item) {
+        // console.log(x, item._id);
         var dish = findItemById(item._id);
+        console.log('dish', dish, dish.qty, item.quantity);
         dish.qty += item.quantity;
-        x.length = 0;
       });
+      ctrl.order.length = 0;
     }
 
     ctrl.getItems();
