@@ -73,6 +73,9 @@ router.get('/:id', function(req, res, next) {
 });
 
 // UPDATE rt
-// router.put('/:id', controller.update);
+router.put('/:id', function(req, res, next) {
+  Item.findById(req.params.id)
+  res.json(item);
+});
 
 module.exports = router;
