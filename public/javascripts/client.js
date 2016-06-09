@@ -86,6 +86,15 @@ angular
       return _.reduce(ctrl.order, function(sum, item) {
         return (sum + ctrl.getCost(item)) * 1.08;
       }, 0);
+    };
+
+    ctrl.clearOrder = function() {
+      var x = ctrl.order;
+      _.each(x, function(item) {
+        var dish = findItemById(item._id);
+        dish.qty += item.quantity;
+        x.length = 0;
+      });
     }
 
     ctrl.getItems();
