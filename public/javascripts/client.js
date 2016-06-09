@@ -78,6 +78,16 @@ angular
       dish.qty += 1;
     };
 
+    ctrl.getCost = function(item) {
+      return item.quantity * item.price;
+    };
+
+    ctrl.getTotal = function() {
+      return _.reduce(ctrl.order, function(sum, item) {
+        return (sum + ctrl.getCost(item)) * 1.08;
+      }, 0);
+    }
+
     ctrl.getItems();
 
 });
