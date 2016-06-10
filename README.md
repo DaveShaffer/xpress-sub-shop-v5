@@ -56,4 +56,7 @@ Finally I built a version of my project from the UI-Router Movie app.  First I w
 ![#db xprss disabled bttn](https://github.com/DaveShaffer/xpress-sub-shop-v5/blob/master/public/images/Screen%20Shot%202016-06-09%20at%2011.08.55.png)
 #
 
+## Future Iterations
+
+Features to add: A button will be added so an order can be sold.  Daily and weekly sales will be tracked.  The inventory should have ingredients to make the menu items.  When a customer adds an item from the menu to their order, the app decrements the ingredients.  As time passes, the age of the ingredients will increase.  If inventory gets too old, it will spoil and have to be thrown away.  When supplies get low, it will be possible to order new supplies, but it will be two days before they are delivered.  If supplies run out, it won't be possible to order some menu items.  There will be a bank account to pay for new supplies and to deposit sales receipts.  The cost of ingredients will also include rent, insurance and other bills.  Random orders will be generated automatically.  Customer orders can be customized - extra mustard, no tomato, etc.  Eventually it will be possible to hire and schedule staff.  Time worked will be tracked and paychecks issued.  However, it they are assigned too many or too few hours, they will quit.
 
