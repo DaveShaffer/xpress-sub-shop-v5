@@ -86,7 +86,6 @@ angular
     }; // End fnc getTotal
 
     ctrl.clearOrder = function(order) {
-       // var x = ctrl.order;
       _.each(ctrl.order, function(item) {
         // console.log(x, item._id);
         var dish = findItemById(item._id); // Id each item in order??????????
