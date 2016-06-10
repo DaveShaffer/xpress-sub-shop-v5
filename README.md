@@ -4,7 +4,7 @@
 
 > Most people eat.  Every day.  Sometimes two or even three times in a single day.  Some folks don't have the time to cook or they don't like cleaning up afterwards.  A select group of individuals prepare meals professionally.  They spend all day fixing food and keeping their kitchen clean and inspection-ready.  With all they already have to do, keeping up with the inventory and sales can be a chore.  This app is designed to ease that burden.
 
-The goal of this project was to make a full-stack MEAN (Mongo Database, ExpressJS JaveScript Server Framework, AngularJS Client-Side Framework and NodeJS Cross-Platform Runtime Environment) Web Application.
+The goal of this project was to make a full-stack MEAN (Mongo Database, ExpressJS JaveScript Server Framework, AngularJS Client-Side Framework and NodeJS Cross-Platform Runtime Environment) Web Application.  Hosted on Heroku - https://sub-shop-v5.herokuapp.com/
 
 ### Models
 ![#db erb diagram](https://github.com/DaveShaffer/xpress-sub-shop-v5/blob/master/public/images/Screen%20Shot%202016-06-09%20at%2010.28.23.png)
@@ -59,6 +59,9 @@ Github: https://github.com/DaveShaffer/xpress-sub-shop-v5.git
 ![#db xprss disabled bttn](https://github.com/DaveShaffer/xpress-sub-shop-v5/blob/master/public/images/Screen%20Shot%202016-06-09%20at%2011.08.55.png)
 #
 
+### Express Deployed on Heroku - https://sub-shop-v5.herokuapp.com/
+![db xprss heroku deploy](https://github.com/DaveShaffer/xpress-sub-shop-v5/blob/master/public/images/Screen%20Shot%202016-06-10%20at%2013.38.28.png)
+#
 To run this code, first install dependencies:
 ```sh
 $ npm install
