@@ -41,7 +41,7 @@ GitHub: https://github.com/DaveShaffer/proj4v4.git
 #
 
 Finally I built a version of my project from the UI-Router Movie app.  First I was stuck because I didn't have a route to update the database.  Next I had a route, but wasn't sending any data.  Next I needed to link my main index page to bower's underscore file.  After that, I didn't have much trouble adopting the Gulp Angular code for my app.  However, at that point, time was up.
-https://github.com/DaveShaffer/xpress-sub-shop-v5.git
+Github: https://github.com/DaveShaffer/xpress-sub-shop-v5.git
 
 ### Express Home
 ![#db xprss home](https://github.com/DaveShaffer/xpress-sub-shop-v5/blob/master/public/images/Screen%20Shot%202016-06-09%20at%2011.06.29.png)
@@ -76,5 +76,13 @@ $ npm start
 
 ## Future Iterations
 
-Features to add: A button will be added so an order can be sold.  Daily and weekly sales will be tracked.  The inventory should have ingredients to make the menu items.  When a customer adds an item from the menu to their order, the app decrements the ingredients.  As time passes, the age of the ingredients will increase.  If inventory gets too old, it will spoil and have to be thrown away.  When supplies get low, it will be possible to order new supplies, but it will be two days before they are delivered.  If supplies run out, it won't be possible to order some menu items.  There will be a bank account to pay for new supplies and to deposit sales receipts.  The cost of ingredients will also include rent, insurance and other bills.  Random orders will be generated automatically.  Customer orders can be customized - extra mustard, no tomato, etc.  Eventually it will be possible to hire and schedule staff.  Time worked will be tracked and paychecks issued.  However, it they are assigned too many or too few hours, they will quit.
+* Features to add: A button will be added so an order can be sold and a new order initiated.  The inventory should have ingredients to make the menu items.  When a customer adds an item from the menu to their order, the app decrements the ingredients.  As time passes, the age of the ingredients will increase.  If inventory gets too old, it will spoil and have to be thrown away.  When supplies get low, it will be possible to order new supplies, but it will be two days before they are delivered.  If supplies run out, it won't be possible to order some menu items.
+
+* There will be a bank account to pay for new supplies and to deposit sales receipts.  Daily and weekly sales will be tracked.  The cost of ingredients will also include rent, insurance and other bills.
+
+* Random orders will be generated automatically.  Customer orders can be customized - extra mustard, no tomato, etc.
+
+* Eventually it will be possible to hire and schedule staff.  Time worked will be tracked and paychecks issued.  However, it they are assigned too many or too few hours, they will quit.
+
+* Instead of regenerating the database every time the server is restarted, the initial inventory will be moved to a seed file.
 
