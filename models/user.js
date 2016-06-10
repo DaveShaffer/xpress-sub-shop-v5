@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
 
 var UserSchema = new Schema({
-  name: String,
+  name: String, // Customer's name
   item : {
     type : mongoose.Schema.Types.ObjectId,
     ref: 'Item'
-  },
-  qty : Number
+  }, // Item ordered from the menu
+  qty : Number // Number of each item ordered by the customer
 });
 
 module.exports = mongoose.model('User', UserSchema);

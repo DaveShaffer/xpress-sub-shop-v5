@@ -10,16 +10,12 @@
     <base href="/">
   </head>
   <body ng-app='subShopApp' ng-controller='itemsCtrl as ctrl'>
-    <!-- <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p> -->
+  <!-- Nav Bar -->
     <div style="border: solid 2px; padding: 5px; color: #EEEEEE">
       <a ui-sref="home">Home</a>
       <a ui-sref="items">Menu</a>
     </div>
-    <!-- <h1>Menu</h1>
-    <ul>
-      <li ng-repeat="item in ctrl.items">{{ item.name }} - {{ item.price | currency }}</li>
-    </ul> -->
+    <!-- Body from public/views -->
     <div ui-view=""></div>
   </body>
 </html>
