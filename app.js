@@ -11,9 +11,10 @@ var users = require('./routes/users');
 var items = require('./routes/items');
 
 var app = express();
+
 var mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/sub-shopv5'
 
-mongoose.connect('mongoUri');
+mongoose.connect(mongoUri);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

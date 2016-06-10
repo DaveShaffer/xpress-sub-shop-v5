@@ -1,4 +1,4 @@
-// 1vsubshop
+rm// 1vsubshop
 // src/app/main/main.controller.js
 (function() {
   'use strict';
