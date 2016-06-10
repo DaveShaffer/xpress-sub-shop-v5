@@ -11,8 +11,7 @@ var users = require('./routes/users');
 var items = require('./routes/items');
 
 var app = express();
-var mongoUri = process.env.MONGODB_URI ||
-'mongodb://localhost/sub-shopv5'
+var mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/sub-shopv5'
 
 mongoose.connect('mongoUri');
 
