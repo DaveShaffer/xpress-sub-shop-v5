@@ -11,6 +11,7 @@ The goal of this project was to make a full-stack MEAN (Mongo Database, ExpressJ
 #
 
 My first attempt was based on the Gulp Angular Camping Store exercise.  It presented a menu where a customer can order food using "Add Item" buttons.  The customer also had buttons to "Remove Items" from the order or to "Clear Order" entirely.  Items removed from the order were returned to inventory.  However, the inventory was just a data file, not a MongoDB API (Application Program Interface).
+GitHub: https://github.com/DaveShaffer/sub-shop-supervisor.git
 
 ### Gulp Angular Cart
 ![#db ang-gulp cart](https://github.com/DaveShaffer/xpress-sub-shop-v5/blob/master/public/images/Screen%20Shot%202016-06-09%20at%2010.32.09.png)
@@ -29,6 +30,7 @@ My first attempt was based on the Gulp Angular Camping Store exercise.  It prese
 #
 
 The next version used the Full-Stack Camping Store exercise.  On the first build, I tried to alter the security so a customer only had to enter a name, not an email and password.  Unfortunately I was unable to login because of "Missing Credentials."  Next I built the app without security, but that version completely eliminated the user model which is where the order was embedded.  The final version had standard security.  It was able to create an order then move the items back to inventory.  However, the front-end wasn't updating when changes were made in the database.
+GitHub: https://github.com/DaveShaffer/proj4v4.git
 
 ### Full-Stack Cart
 ![#db full-stk cart](https://github.com/DaveShaffer/xpress-sub-shop-v5/blob/master/public/images/Screen%20Shot%202016-06-09%20at%2011.00.18.png)
@@ -39,6 +41,7 @@ The next version used the Full-Stack Camping Store exercise.  On the first build
 #
 
 Finally I built a version of my project from the UI-Router Movie app.  First I was stuck because I didn't have a route to update the database.  Next I had a route, but wasn't sending any data.  Next I needed to link my main index page to bower's underscore file.  After that, I didn't have much trouble adopting the Gulp Angular code for my app.  However, at that point, time was up.
+https://github.com/DaveShaffer/xpress-sub-shop-v5.git
 
 ### Express Home
 ![#db xprss home](https://github.com/DaveShaffer/xpress-sub-shop-v5/blob/master/public/images/Screen%20Shot%202016-06-09%20at%2011.06.29.png)
@@ -55,6 +58,21 @@ Finally I built a version of my project from the UI-Router Movie app.  First I w
 ### Express Add Item Button Disabled
 ![#db xprss disabled bttn](https://github.com/DaveShaffer/xpress-sub-shop-v5/blob/master/public/images/Screen%20Shot%202016-06-09%20at%2011.08.55.png)
 #
+
+To run this code, first install dependencies:
+```sh
+$ npm install
+$ bower install
+```
+Start the Gulp Angular and Full-Stack servers with:
+```sh
+$ gulp serve
+```
+
+Start the Express server with:
+```sh
+$ npm start
+```
 
 ## Future Iterations
 
