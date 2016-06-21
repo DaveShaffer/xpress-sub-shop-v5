@@ -4,6 +4,17 @@ var _ = require('lodash');
 
 var User = require('../models/user');
 
+// function saveUpdates(updates) {
+//   // return function(entity) {
+//   //   var updated = _.merge(entity, updates);
+//   console.log(updates);
+//     return users.create(updates)
+//     // .then(updated => {
+//     //   return updated;
+//     // }); // End .then
+//   // }; // End fnc(entity)
+// } // End fnc saveUpdates
+
 function seedUsers() {
   var users = [
     {
@@ -71,8 +82,24 @@ router.get('/', function(req, res, next) {
 
 // UPDATE rt
 router.post('/', function(req, res, next) {
-  console.log(req.body);
-  User.save(req.body)
+  console.log('POST: ', req.body);
+  var csr = new User ({
+    name: req.body.name,
+    item: req.body.item,
+    price: req.body.price
+  });
+  console.log('CSR: ', csr);
+  csr.save(function(err) {
+    if (!err) {
+      return console.log("Created");
+    } else {
+      return console.log(err);
+    }
+  });
+  return res.send(csr);
+  // return csr.save()
+  // return req.body.save()
+  // return User.create(req.body);
   // Item.findById(req.params.id) // Find one item
   // .then(saveUpdates(req.body)) // Send updated info to dbase, end .then
   // .then(function(item) {

@@ -1,5 +1,7 @@
 angular.module('subShopApp', ['ui.router']);
 
+// var User = require('../models/user');
+
 angular
   .module('subShopApp')
   .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -30,7 +32,6 @@ angular
   .module('subShopApp')
   .controller('itemsCtrl', function($http) {
 
-    // var User = require('../../models/user');
     var ctrl = this;
     ctrl.items = []; // Items for the menu page
     ctrl.order = []; // Customer's order
@@ -92,12 +93,13 @@ angular
     }; // End fnc clearOrder
 
     ctrl.checkout = function(order) {
-      cust = [];
+      cust = {};
       cust.name = prompt("Customer name?");
       cust.item = ctrl.order;
       cust.price = ctrl.getTotal();
       console.log(cust);
-      User.create(cust)
+      return $http.post('/users/', cust);
+      // User.create(cust) // User is not defined
       // .then(function() {
       // ctrl.order.length = 0;
       // });
