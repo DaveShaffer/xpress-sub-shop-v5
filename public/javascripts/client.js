@@ -30,6 +30,7 @@ angular
   .module('subShopApp')
   .controller('itemsCtrl', function($http) {
 
+    // var User = require('../../models/user');
     var ctrl = this;
     ctrl.items = []; // Items for the menu page
     ctrl.order = []; // Customer's order
@@ -91,7 +92,15 @@ angular
     }; // End fnc clearOrder
 
     ctrl.checkout = function(order) {
-
+      cust = [];
+      cust.name = prompt("Customer name?");
+      cust.item = ctrl.order;
+      cust.price = ctrl.getTotal();
+      console.log(cust);
+      User.create(cust)
+      // .then(function() {
+      // ctrl.order.length = 0;
+      // });
     }; // End fnc checkout
 
     ctrl.getItems(); // Print menu page

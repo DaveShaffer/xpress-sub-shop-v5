@@ -69,4 +69,22 @@ router.get('/', function(req, res, next) {
 //   }); // End .catch and fnc(err)
 // }); // End update route and fnc
 
+// UPDATE rt
+router.post('/', function(req, res, next) {
+  console.log(req.body);
+  User.save(req.body)
+  // Item.findById(req.params.id) // Find one item
+  // .then(saveUpdates(req.body)) // Send updated info to dbase, end .then
+  // .then(function(item) {
+  //   if (!item) { // Was item not found?
+  //     res.status(404).json( { error: 'Not found' } ); // No item, display error mssg
+  //   } // End if (!item)
+  //   // console.log("line 84 " + item);
+  //   res.json(item); // Item found
+  // }) // End .then and fnc(item)
+  // .catch(function(err) {
+  //   return next(err); // Return error and move on
+  // }); // End .catch and fnc(err)
+}); // End update route and fnc
+
 module.exports = router;
