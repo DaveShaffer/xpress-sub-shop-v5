@@ -42,6 +42,17 @@ angular
       }); // End _.find and fnc(item)
     } // End fnc findItemById
 
+    ctrl.thankYou = function(order) {
+          // thankYou(function(order) {
+            // setTimeout(function() {
+              console.log("Thank you!");
+            // }, 2000);
+        console.log("Please enjoy your ")
+        _.each(ctrl.order, function(item) {
+          console.log(item.quantity, item.name);
+        });
+      };
+
     ctrl.getItems = function() {
       $http.get('/api/items') // Read inventory dbase
       .then(function(res) {
@@ -97,13 +108,29 @@ angular
       cust.name = prompt("Customer name?");
       cust.item = ctrl.order;
       cust.price = ctrl.getTotal();
-      console.log(cust);
-      return $http.post('/users/', cust);
+      // console.log(cust);
+      $http.post('/users/', cust)
+      .then(function() {
+            ctrl.thankYou(order);
+      })
+      .then(function() {
+        ctrl.order.length = 0;
+      });
+
+
+      // ctrl.emptyOrder();
+      // _.each(ctrl.order, function(item) {
+      //   item.quantity = 0;
+      // })
       // User.create(cust) // User is not defined
       // .then(function() {
-      // ctrl.order.length = 0;
+
       // });
     }; // End fnc checkout
+
+    // ctrl.emptyOrder = function(order) {
+    //   ctrl.order.length = 0;
+    // };
 
     ctrl.getItems(); // Print menu page
 }); // End fnc itemsCtrl

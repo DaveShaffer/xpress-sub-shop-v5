@@ -82,13 +82,13 @@ router.get('/', function(req, res, next) {
 
 // UPDATE rt
 router.post('/', function(req, res, next) {
-  console.log('POST: ', req.body);
+  // console.log('POST: ', req.body);
   var csr = new User ({
     name: req.body.name,
     item: req.body.item,
     price: req.body.price
   });
-  console.log('CSR: ', csr);
+  // console.log('CSR: ', csr);
   csr.save(function(err) {
     if (!err) {
       return console.log("Created");
