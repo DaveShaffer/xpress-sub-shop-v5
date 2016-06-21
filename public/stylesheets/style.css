@@ -1,6 +1,6 @@
 body {
-  color: yellow;
-  background-image: url("../images/sub_shop.jpeg");
+  color: #030303;
+  background-image: url("../images/sub_shop.png");
   background-size: 1200px;
   background-color: #030303;
   /*opacity: 0.5;*/
@@ -14,7 +14,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #030303;
 }
 
 ul {

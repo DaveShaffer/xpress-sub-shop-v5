@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
 
-var UserSchema = new Schema({
+var UserSchema = new mongoose.Schema({
   name: String, // Customer's name
-  item : {
-    type : mongoose.Schema.Types.ObjectId,
+  item: [ {
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Item'
-  }, // Item ordered from the menu
-  qty : Number // Number of each item ordered by the customer
+  } ], // Item ordered from the menu
+  price: Number // Number of each item ordered by the customer
 });
 
 module.exports = mongoose.model('User', UserSchema);

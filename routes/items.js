@@ -17,21 +17,21 @@ function saveUpdates(updates) {
 function seedItems() {
 var items = [
         {
-        name: 'Cheese Burger',
-        price: 3.50,
-        qty: 3,
+        name: 'Ham and Cheese Submarine',
+        price: 4.50,
+        qty: 50,
         quantity: 1,
         serving: 1,
-        delDate: 1465200076000,
+        delDate: 1466500076000,
         age: 0,
-        shelfLife: 7
+        shelfLife: 2
       }, // End obj
       {
         name: 'Chips',
         price: 1.00,
         qty: 200,
         serving: 1,
-        delDate: 1465200076000,
+        delDate: 1466500076000,
         age: 0,
         shelfLife: 365
       }, // End obj
@@ -40,7 +40,7 @@ var items = [
         price: 2.50,
         qty: 1000,
         serving: 1,
-        delDate: 1465200076000,
+        delDate: 1466500076000,
         age: 0,
         shelfLife: 700
       } // End obj
@@ -49,10 +49,7 @@ var items = [
   Item.find({}).remove() // Clear old dbase
   .then(function() {
     return Item.create(items); // Build new dbase
-  }) // End .then and fnc
-  .then(function() {
-    return Item.find({}); // Show items in dbase
-  }) // End .then and fnc
+  })
   .then(function(found) {
     console.log('Saved ', found.length, ' items'); // Show how many type of items in dbase
   }); // End .then and fnc(found)
@@ -70,7 +67,6 @@ router.get('/', function(req, res, next) {
 
 // SHOW rt
 router.get('/:id', function(req, res, next) {
-  // console.log(req.body);
   Item.findById(req.params.id) // Read one item
   .then(function(item) {
     if (!item) { // Was item not found?
@@ -85,14 +81,12 @@ router.get('/:id', function(req, res, next) {
 
 // UPDATE rt
 router.put('/:id', function(req, res, next) {
-  // console.log(req.body);
   Item.findById(req.params.id) // Find one item
   .then(saveUpdates(req.body)) // Send updated info to dbase, end .then
   .then(function(item) {
     if (!item) { // Was item not found?
       res.status(404).json( { error: 'Not found' } ); // No item, display error mssg
     } // End if (!item)
-    // console.log("line 84 " + item);
     res.json(item); // Item found
   }) // End .then and fnc(item)
   .catch(function(err) {

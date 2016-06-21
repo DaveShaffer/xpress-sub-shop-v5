@@ -17,5 +17,6 @@
   </ul>
   <h3>Total inc. tax: {{ ctrl.getTotal() | currency }}</h3>
   <br>
-  <button class="btn btn-danger" ng-click="ctrl.clearOrder(order)">Clear Order</button>
+  <button class="btn btn-danger" ng-click="ctrl.clearOrder(order)">Clear Order</button></br>
+  <button class="btn btn-success" ng-click="ctrl.checkout(order)">Checkout</button>
 </article>

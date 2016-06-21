@@ -11,7 +11,7 @@ angular
     .state('home', {
       url: "/",
       templateUrl: "views/home.html"
-    }) // Home page
+    }) // Welcome page
     .state('items', {
        url: "/items",
       templateUrl: "views/items.html",
@@ -35,9 +35,7 @@ angular
     ctrl.order = []; // Customer's order
 
     function findItemById(items, id) {
-      // console.log('findItemById', id);
       return _.find(items, function(item) {
-        // console.log('findItemById2', item._id, id)
         return item._id === id;
       }); // End _.find and fnc(item)
     } // End fnc findItemById
@@ -53,25 +51,23 @@ angular
     ctrl.addItem = function(item) {
       item.qty -= 1; // Remove item from inventory dbase
       var found = findItemById(ctrl.order, item._id);
-      // console.log('addItem', item._id, found);
       if (found) { // Is item already in order?
         found.quantity += item.serving; // Item already in order, increase number of items
-      } else { // cntl.order.quantity???????????
+      } else {
         ctrl.order.push(angular.copy(item)); // Item not in order, add item to order
       } // End if (found)
-      // console.log('hello', item, ctrl.order);
       return $http.put('/api/items/' + item._id, item); // Update inventory dbase
     }; // End fnc addItem
 
     ctrl.removeItem = function(item) {
       var index = ctrl.order.indexOf(item); // Locate item in order
-       var dish = findItemById(ctrl.order, item._id); // ID item ????????
-      dish.qty += 1; // Put item back in inventory dbase
-      // console.log(index, item);
+      var found = findItemById(ctrl.items, item._id); // Locate item in inventory dbase
+      found.qty += 1; // Put item back in inventory dbase
       ctrl.order[index].quantity -= 1; // Remove one item
       if (ctrl.order[index].quantity == 0) { // Are all items gone?
         ctrl.order.splice(index, 1); // All items gone, remove item object from order
       }; // End if all items are gone
+      return $http.put('/api/items/' + item._id, found); // Update dbase
     }; // End fnc removeItem
 
     ctrl.getCost = function(item) {
@@ -87,22 +83,23 @@ angular
 
     ctrl.clearOrder = function(order) {
       _.each(ctrl.order, function(item) {
-        // console.log(x, item._id);
-        var dish = findItemById(item._id); // Id each item in order??????????
-        // console.log('dish', dish, dish.qty, item.quantity);
+        var dish = findItemById(ctrl.items, item._id); // Id each item in order
         dish.qty += item.quantity; // Put item back in inventory dbase
+        return $http.put('/api/items/' + item._id, dish); // Update dbase
       }); // End _.each and fnc(item)
-      ctrl.order.length = 0;
-    } // End fnc clearOrder
+      ctrl.order.length = 0; // Clear order
+    }; // End fnc clearOrder
+
+    ctrl.checkout = function(order) {
+
+    }; // End fnc checkout
 
     ctrl.getItems(); // Print menu page
-
 }); // End fnc itemsCtrl
 
 angular
   .module('subShopApp')
   .controller('itemsShowCtrl', function($http, $stateParams) {
-    // console.log('itemShowCtrl is up');
 
     var ctrl = this;
     ctrl.item = {};
