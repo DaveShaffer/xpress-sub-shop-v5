@@ -24,12 +24,14 @@ GitHub: https://github.com/DaveShaffer/proj4v4.git
 ![#db full-stk cart](https://github.com/DaveShaffer/xpress-sub-shop-v5/blob/master/public/images/Screen%20Shot%202016-06-09%20at%2011.00.18.png)
 #
 
-Finally I built a version of my project from the UI-Router Movie app.  First I was stuck because I didn't have a route to update the database.  Next I had a route, but wasn't sending any data.  Next I needed to link my main index page to bower's underscore file.  After that, I didn't have much trouble adopting the Gulp Angular code for my app.  However, at that point, time was up.
+Finally I built a version of my project from the UI-Router Movie app.  First I was stuck because I didn't have a route to update the database.  Next I had a route, but wasn't sending any data.  Next I needed to link my main index page to bower's underscore file.  After that, I didn't have much trouble adopting the Gulp Angular code for my app.  Later I added a checkout button which first asks for a customer's name, stores the order in the database then clears the order to get ready for the next customer.
 Github: https://github.com/DaveShaffer/xpress-sub-shop-v5.git
 
-### Express Home
+### Express Menu
+![#db express menu](https://github.com/DaveShaffer/xpress-sub-shop-v5/blob/master/public/images/Screen%20Shot%202016-06-22%20at%2012.07.59.png)
 
 ### Express Deployed on Heroku - https://sub-shop-v5.herokuapp.com/
+![#db heroku home](https://github.com/DaveShaffer/xpress-sub-shop-v5/blob/master/public/images/Screen%20Shot%202016-06-22%20at%2012.09.19.png)
 
 To run this code, first install dependencies:
 ```sh
@@ -48,7 +50,7 @@ $ npm start
 
 ## Future Iterations
 
-* Features to add: A button will be added so an order can be sold and a new order initiated.  The inventory should have ingredients to make the menu items.  When a customer adds an item from the menu to their order, the app decrements the ingredients.  As time passes, the age of the ingredients will increase.  If inventory gets too old, it will spoil and have to be thrown away.  When supplies get low, it will be possible to order new supplies, but it will be two days before they are delivered.  If supplies run out, it won't be possible to order some menu items.
+* Features to add: The inventory should have ingredients to make the menu items.  When a customer adds an item from the menu to their order, the app decrements the ingredients.  As time passes, the age of the ingredients will increase.  If inventory gets too old, it will spoil and have to be thrown away.  When supplies get low, it will be possible to order new supplies, but it will be two days before they are delivered.  If supplies run out, it won't be possible to order some menu items.
 
 * There will be a bank account to pay for new supplies and to deposit sales receipts.  Daily and weekly sales will be tracked.  The cost of ingredients will also include rent, insurance and other bills.
 
