@@ -48,6 +48,12 @@ Start the Express server with:
 $ npm start
 ```
 
+or
+
+```sh
+$ nodemon ./bin/www
+```
+
 ## Future Iterations
 
 * Features to add: The inventory should have ingredients to make the menu items.  When a customer adds an item from the menu to their order, the app decrements the ingredients.  As time passes, the age of the ingredients will increase.  If inventory gets too old, it will spoil and have to be thrown away.  When supplies get low, it will be possible to order new supplies, but it will be two days before they are delivered.  If supplies run out, it won't be possible to order some menu items.
